@@ -1,0 +1,23 @@
+{
+	"name": "EmbedLRMI",
+	"version": "0.1",
+	"author": [
+		"Jan Böhme"
+	],
+	"url": "https://idea-sketch.com",
+	"description": "Embed LRMI metadata for articles retrieved from edusharing repository",
+	"license-name": "GPL",
+	"type": "parserhook",
+	"MessagesDirs": {},
+	"requires": {
+		"MediaWiki": ">= 1.29.0"
+	},
+	"AutoloadClasses": {
+		"MediaWiki\\Extension\\EmbedLRMI\\Hooks": "Hooks.php",
+		"MediaWiki\\Extension\\EmbedLRMI\\LRMIData": "LRMIData.php"
+	},
+	"Hooks": {
+		"BeforePageDisplay": "MediaWiki\\Extension\\EmbedLRMI\\Hooks::onBeforePageDisplay"
+	},
+	"manifest_version": 2
+}
