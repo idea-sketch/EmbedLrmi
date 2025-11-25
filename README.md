@@ -250,16 +250,6 @@ This extension is designed to work with any LRMI-compatible repository that:
 
 ---
 
-# TODO
-
-- Support for additional API authentication methods
-- Batch processing for multiple pages
-- Alternative metadata formats beyond JSON-LD
-- Configurable API request structure
-- Statistics dashboard for cached vs. fresh data
-
----
-
 # License
 
 The software is licensed under the **GNU General Public License v2.0 or later**. For details, see [LICENSE](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
