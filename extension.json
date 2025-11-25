@@ -1,23 +1,56 @@
 {
 	"name": "EmbedLRMI",
-	"version": "0.1",
+	"version": "1.0",
 	"author": [
-		"Jan Böhme"
+		"Jan Böhme",
+		"Uwe Schützenmeister"
 	],
 	"url": "https://idea-sketch.com",
-	"description": "Embed LRMI metadata for articles retrieved from edusharing repository",
+	"description": "Embed LRMI metadata for articles retrieved from LRMI repository",
 	"license-name": "GPL",
-	"type": "parserhook",
-	"MessagesDirs": {},
+	"type": "other",
 	"requires": {
-		"MediaWiki": ">= 1.29.0"
+		"MediaWiki": ">= 1.35.0"
 	},
-	"AutoloadClasses": {
-		"MediaWiki\\Extension\\EmbedLRMI\\Hooks": "Hooks.php",
-		"MediaWiki\\Extension\\EmbedLRMI\\LRMIData": "LRMIData.php"
+	"MessagesDirs": {
+		"EmbedLRMI": [
+			"i18n"
+		]
+	},
+	"ExtensionMessagesFiles": {
+		"EmbedLRMIAlias": "EmbedLrmi.i18n.alias.php"
+	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\EmbedLrmi\\": "src/"
+	},
+	"SpecialPages": {
+		"PurgeLrmiCache": "MediaWiki\\Extension\\EmbedLrmi\\SpecialPurgeLrmiCache"
+	},
+	"AvailableRights": [
+		"purgelrmicache"
+	],
+	"GroupPermissions": {
+		"sysop": {
+			"purgelrmicache": true
+		},
+		"bureaucrat": {
+			"purgelrmicache": true
+		}
+	},
+	"HookHandlers": {
+		"EmbedLrmiHooks": {
+			"class": "MediaWiki\\Extension\\EmbedLrmi\\EmbedLrmiHooks"
+		},
+		"EmbedLrmiData": {
+			"class": "MediaWiki\\Extension\\EmbedLrmi\\EmbedLrmiData"
+		}
 	},
 	"Hooks": {
-		"BeforePageDisplay": "MediaWiki\\Extension\\EmbedLRMI\\Hooks::onBeforePageDisplay"
+		"BeforePageDisplay": "EmbedLrmiHooks",
+		"SkinTemplateNavigation::Universal": "EmbedLrmiHooks",
+		"SidebarBeforeOutput": "EmbedLrmiHooks",
+		"PageSaveComplete": "EmbedLrmiData",
+		"MediaWikiPerformAction": "EmbedLrmiData"
 	},
 	"manifest_version": 2
 }

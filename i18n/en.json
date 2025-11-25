@@ -1,0 +1,16 @@
+{
+    "@metadata": {
+        "authors": [
+            "Uwe Schützenmeister"
+        ]
+    },
+    "embedlrmi-show-lrmi-data": "Learning Resource Metadata Initiative (LRMI) - Metadata",
+    "embedlrmi-show-lrmi-link": "LRMI Data",
+    "embedlrmi-purge-cache-title": "Purge LRMI Cache",
+    "embedlrmi-purge-cache-description": "This will delete all cached LRMI metadata. The data will be fetched again from the repository on the next page view.",
+    "embedlrmi-purge-cache-button": "Purge all LRMI cache",
+    "embedlrmi-purge-cache-success": "LRMI cache has been successfully purged.",
+    "purgelrmicache": "Purge LRMI Cache",
+	"purgelrmicache-summary": "Purge all cached LRMI metadata",
+    "right-purgelrmicache": "Purge LRMI cache"
+}
