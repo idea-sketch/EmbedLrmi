@@ -323,13 +323,22 @@ class EmbedLrmiData {
 	 */
 	public static function onPageSaveComplete( $wikiPage, $user, $summary, $flags, $revision, $editResult ) {
 		$title = $wikiPage->getTitle();
-		$cache = MediaWikiServices::getInstance()->getMainObjectStash();
+		$services = MediaWikiServices::getInstance();
+		$cache = $services->getMainObjectStash();
+		$config = $services->getMainConfig();
 
-		// Generate the cache key for the saved page
+	// Generate the cache key for the saved page
 		$originalUrl = $title->getFullURL();
-		if ( isset( $GLOBALS['wgEmbedLrmiUrlReplacements'] ) ) {
-			$from = $GLOBALS['wgEmbedLrmiUrlReplacements']['from'] ?? [];
-			$to = $GLOBALS['wgEmbedLrmiUrlReplacements']['to'] ?? [];
+
+	// Get URL replacements from config
+		$urlReplacements = null;
+		if ( $config->has( 'EmbedLrmiUrlReplacements' ) ) {
+			$urlReplacements = $config->get( 'EmbedLrmiUrlReplacements' );
+		}
+
+		if ( $urlReplacements ) {
+			$from = $urlReplacements['from'] ?? [];
+			$to = $urlReplacements['to'] ?? [];
 			$pageUrl = str_replace( $from, $to, $originalUrl );
 		} else {
 			$pageUrl = $originalUrl;
