@@ -1,0 +1,10 @@
+{
+    "require-dev": {
+        "mediawiki/mediawiki-codesniffer": "^48.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
