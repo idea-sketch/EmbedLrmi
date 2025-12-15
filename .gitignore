@@ -1,1 +1,6 @@
+node_modules/
 vendor/
+*_bak
+*.bak
+.eslintcache
+.stylelintcache
