@@ -293,7 +293,7 @@ class EmbedLrmiData {
 			$instance->getMetaData();
 			$outputPage->setArticleRelated( true );
 			$outputPage->setRobotPolicy( 'noindex,nofollow' );
-			$outputPage->setPageTitle( $outputPage->msg( 'embedlrmi-show-lrmi-data' ) );
+			$outputPage->setPageTitle( wfMessage( 'embedlrmi-show-lrmi-data' )->text() );
 			if ( $instance->lrmidata && isset( $instance->lrmidata['nodes'][0] ) ) {
 				$outputPage->addHTML( '<div class="lrmi-data-container">' );
 				$outputPage->addHTML( $instance->generateTree( $instance->lrmidata['nodes'][0] ) );

@@ -47,7 +47,7 @@ class SpecialPurgeLrmiCache extends SpecialPage {
 		$this->checkPermissions();
 		$out = $this->getOutput();
 		$request = $this->getRequest();
-		$out->setPageTitle( $this->msg( 'embedlrmi-purge-cache-title' ) );
+		$out->setPageTitle( wfMessage( 'embedlrmi-purge-cache-title' )->text() );
 
 		// Check if form was submitted
 		if ( $request->wasPosted() && $request->getVal( 'action' ) === 'purge' ) {
