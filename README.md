@@ -26,7 +26,7 @@ The extension can replace parts of the page URL (e.g., domain or underscores) to
 
 # Requirements
 
-- **MediaWiki 1.35+** (tested with 1.43).
+- **MediaWiki 1.39+** (tested with 1.39).
 - **PHP 8.0+** (required for compatibility with modern LRMI APIs and JSON processing).
 - Access to an LRMI-compatible repository API endpoint.
 
@@ -60,11 +60,11 @@ Users with the `purgelrmicache` permission (by default: sysops and bureaucrats) 
 
 The extension requires configuration in your `LocalSettings.php`:
 
-| Variable                      | Description                                                                         | Required | Default           |
-| ----------------------------- | ----------------------------------------------------------------------------------- | -------- | ----------------- |
-| `$wgEmbedLrmiEndpoint`        | The LRMI repository API endpoint URL.                                               | Yes      | -                 |
-| `$wgEmbedLrmiUrlReplacements` | An associative array to replace parts of the page URL before sending it to the API. | No       | -                 |
-| `$wgEmbedLrmiCacheExpiry`     | Cache duration in seconds. Set to `0` to disable caching.                           | No       | 2592000 (30 days) |
+| Variable                      | Description                                                                                                                                  | Required | Default           |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------------- |
+| `$wgEmbedLrmiEndpoint`        | The LRMI repository API endpoint URL.                                                                                                        | Yes      | -                 |
+| `$wgEmbedLrmiUrlReplacements` | An associative array to replace parts of the page URL before sending it to the API (i.e. for development environments) - see example below.  | No       | -                 |
+| `$wgEmbedLrmiCacheExpiry`     | Cache duration in seconds. Set to `0` to disable caching.                                                                                    | No       | 2592000 (30 days) |
 
 ### Example Configuration
 
